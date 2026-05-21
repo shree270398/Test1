@@ -44,6 +44,12 @@ pipeline {
                 sh 'docker push $IMAGE_NAME'
             }
         }
+        stage('remove old container'){
+            steps {
+                sh 'docker rm $CONTAINER_NAME'
+            }
+        }
+            
 
 
         stage('Run Docker Container') {
